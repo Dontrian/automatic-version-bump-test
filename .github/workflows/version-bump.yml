@@ -1,4 +1,4 @@
-name: Run commitlint
+name: Version bump
 
 on:
   push:
