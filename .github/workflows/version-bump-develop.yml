@@ -1,7 +1,7 @@
 name: Version bump
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - closed
     branches: ["develop"]
@@ -27,4 +27,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         version-type:  'patch'
+        target-branch: 'develop'
         commit-message: 'CI: bumps version to {{version}} because pull request merged into develop'
