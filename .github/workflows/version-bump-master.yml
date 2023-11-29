@@ -21,14 +21,6 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Bump master version
-      uses: phips28/gh-action-bump-version@v10.1.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        target-branch: 'master'
-        default:  'minor'
-
     - name: Bump develop version
       uses: phips28/gh-action-bump-version@v10.1.1
       env:
@@ -37,6 +29,13 @@ jobs:
         target-branch: 'develop'
         default:  'minor'
 
+    - name: Bump master version
+      uses: phips28/gh-action-bump-version@v10.1.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        target-branch: 'master'
+        default:  'minor'
 
 
 
@@ -45,4 +44,3 @@ jobs:
 
 
 
-        
