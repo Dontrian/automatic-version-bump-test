@@ -6,12 +6,12 @@ on:
 
 jobs:    
   bump-version:
-    if: ${{ github.base_ref }} == "refs/heads/develop"
+    if: ${{ github.head_ref }} == "refs/heads/develop"
     name: Is pull request from develop
 
     runs-on: ubuntu-latest #self-hosted
 
     steps:
     - name: Fail because the pull request is not from develop
-      run: echo pull requests from ${{github.base_ref}} are not allowed && exit 1
+      run: echo pull requests from ${{github.head_ref}} are not allowed && exit 1
 
