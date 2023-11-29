@@ -4,7 +4,7 @@ on:
   pull_request: # triggers on open, reopen and synchronize by default
     branches: ["master"]
 
-  jobs:    
+jobs:    
   bump-version:
     if: ${{ github.ref }} == "refs/heads/develop"
     name: Is pull request from develop
