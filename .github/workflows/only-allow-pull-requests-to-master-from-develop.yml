@@ -13,5 +13,5 @@ jobs:
 
     steps:
     - name: Fail because the pull request is not from develop
-      run: exit 1
-
+      run: echo pull requests from ${{github.ref}} are not allowed && exit 1
+      
