@@ -30,9 +30,9 @@ jobs:
         target-branch: 'master'
         commit-message: 'CI: bumps version to {{version}} because pull request merged into master'
 
-  bump-minor-version-on-develop:
+  merge-master-into-develop:
     if: github.event.pull_request.merged == true
-    name: Bump the version
+    name: Merge master into develop
 
     permissions:
       contents: write
@@ -40,16 +40,10 @@ jobs:
     runs-on: ubuntu-latest #self-hosted
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
-    - name: Automated Version Bump
-      uses: phips28/gh-action-bump-version@v10.1.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        version-type:  'minor'
-        target-branch: 'develop'
-        skip-tag: 'true' # Don't tag minor versions on develop
-        commit-message: 'CI: bumps version to {{version}} because pull request merged into master'
+      - uses: actions/checkout@v2
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ github.token }}
+          source_ref: 'master'
+          target_branch: 'develop'
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
