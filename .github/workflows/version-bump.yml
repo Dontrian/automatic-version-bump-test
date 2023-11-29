@@ -27,5 +27,3 @@ jobs:
                                           # defaulting to a patch bump.
         rc-wording:     'RELEASE,alpha'
 
-
-
