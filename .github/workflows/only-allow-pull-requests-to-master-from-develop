@@ -1,3 +1,5 @@
+name: Check that pull request is from develop
+
 on:
   pull_request: # triggers on open, reopen and synchronize by default
     branches: ["master"]
@@ -12,3 +14,4 @@ on:
     steps:
     - name: Fail because the pull request is not from develop
       run: exit 1
+
