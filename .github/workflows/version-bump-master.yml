@@ -28,7 +28,6 @@ jobs:
       with:
         target-branch: 'develop'
         default:  'minor'
-        skip-tag: 'true'
         commit-message: 'CI: bumps version to {{version}} because pull request merged into master'
 
     - name: Bump master version
@@ -38,6 +37,7 @@ jobs:
       with:
         target-branch: 'master'
         default:  'minor'
+        skip-tag: 'true'
         commit-message: 'CI: bumps version to {{version}} because pull request merged into master'
 
 
