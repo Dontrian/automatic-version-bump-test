@@ -6,7 +6,7 @@ on:
 
 jobs:    
   bump-version:
-    if: ${{ github.head_ref }} == "refs/heads/develop"
+    if: ${{ github.head_ref }} == "develop"
     name: Is pull request from develop
 
     runs-on: ubuntu-latest #self-hosted
