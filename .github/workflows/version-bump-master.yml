@@ -9,7 +9,7 @@ on:
 jobs:    
   bump-minor-version-on-master:
     if: github.event.pull_request.merged == true
-    name: Bump the version
+    name: Bump the version on master
 
     permissions:
       contents: write
@@ -48,3 +48,6 @@ jobs:
           source_ref: 'master'
           target_branch: 'develop'
           commit_message_template: 'CI: Merged {source_ref} into target {target_branch} after version bump'
+
+
+          
