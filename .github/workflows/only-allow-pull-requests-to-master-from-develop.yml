@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Check that pull request is from develop
       run: |
-        if github.head_ref == 'develop'
+        if ${{github.head_ref}} == 'develop'
         then
         echo Pull request is from develop ✔
           exit 0
