@@ -6,17 +6,22 @@ on:
 
 jobs:    
   bump-version:
-    name: Is pull request from develop
+    name: Is pull request from develop (or master)
 
     runs-on: ubuntu-latest #self-hosted
 
     steps:
-    - name: Check that pull request is from develop
+    - name: Check that pull request is from develop or master
       run: |
         if [ "${{github.head_ref}}" == "develop" ]; then
-          echo Pull request is from develop ✔
+        echo Pull request is from develop ✔
+          exit 0
+        elif [ "${{github.head_ref}}" == "master" ]; then
+          echo Pull request is from master ✔
           exit 0
         else
           echo Pull requests from ${{github.head_ref}} are not allowed. Only pull requests from develop are allowed.
-          exit 1
         fi
+        
+        exit 1
+      
