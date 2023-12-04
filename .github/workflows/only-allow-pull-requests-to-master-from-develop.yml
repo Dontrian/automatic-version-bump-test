@@ -13,8 +13,8 @@ jobs:
     steps:
     - name: Check that pull request is from develop
       run: |
-        if github.head_ref == 'develop'
-        then
+        if [ "${{github.head_ref}}" == "develop" ]; then
+          echo Pull request is from develop ✔
           exit 0
         else
           echo Pull requests from ${{github.head_ref}} are not allowed. Only pull requests from develop are allowed.
