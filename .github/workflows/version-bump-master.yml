@@ -23,15 +23,17 @@ jobs:
 
     - name: Automated Version Bump
       uses: phips28/gh-action-bump-version@v10.1.1
+        
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
+        token: ${{ secrets.VERSION_BUMPER_PAT }}
         version-type:  'minor'
         target-branch: 'master'
         commit-message: 'CI: bumped version to {{version}} because a pull request was merged into master'
 
   merge-master-into-develop:
-    needs: bump-minor-version-on-master # has to eb run after version has been bumped
+    needs: bump-minor-version-on-master # has to be run after version has been bumped
     if: github.event.pull_request.merged == true
     name: Merge master into develop
 
